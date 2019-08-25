@@ -32,6 +32,9 @@ TARGET_OTA_ASSERT_DEVICE := lime,citrus,lemon,pomelo,juice
 TARGET_BOARD_PLATFORM := bengal
 TARGET_BOOTLOADER_BOARD_NAME := bengal
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
