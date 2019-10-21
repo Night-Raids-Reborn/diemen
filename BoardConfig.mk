@@ -22,6 +22,9 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := lime,citrus,lemon,pomelo,juice
+
 # Bootloader
 TARGET_BOARD_PLATFORM := bengal
 TARGET_BOOTLOADER_BOARD_NAME := bengal
