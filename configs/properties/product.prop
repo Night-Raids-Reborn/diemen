@@ -5,6 +5,7 @@ ro.surface_flinger.supports_background_blur=1
 
 # Graphics
 debug.hwui.renderer=opengl
+debug.sf.enable_hwc_vds=0
 debug.sf.hw=1
 debug.sf.disable_backpressure=1
 debug.sf.latch_unsignaled=1
