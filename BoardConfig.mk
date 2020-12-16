@@ -10,6 +10,7 @@ BOARD_VENDOR := xiaomi
 
 BUILD_BROKEN_DUP_RULES := true
 
+
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
