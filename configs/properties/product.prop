@@ -13,7 +13,7 @@ ro.hardware.vulkan=adreno
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 ro.surface_flinger.has_HDR_display=true
 ro.surface_flinger.has_wide_color_display=false
-ro.surface_flinger.protected_contents=true
+ro.surface_flinger.protected_contents=false
 ro.surface_flinger.set_touch_timer_ms=200
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.use_context_priority=true
@@ -26,7 +26,6 @@ debug.mdpcomp.logs=0
 persist.sys.scrollingcache=1
 debug.sf.recomputecrop=0
 vendor.display.disable_rotator_downscale=1
-
 
 # SF Offset
 debug.sf.late.sf.duration=10500000
