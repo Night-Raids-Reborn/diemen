@@ -26,3 +26,5 @@ PRODUCT_COPY_FILES += \
 
 # Shipping level
 PRODUCT_SHIPPING_API_LEVEL := 29
+
+include vendor/xiaomi/juice/juice-vendor.mk
