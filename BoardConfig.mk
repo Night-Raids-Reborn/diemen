@@ -29,6 +29,10 @@ TARGET_OTA_ASSERT_DEVICE := lime,citrus,lemon,pomelo,juice
 TARGET_BOARD_PLATFORM := bengal
 TARGET_BOOTLOADER_BOARD_NAME := bengal
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_juice
+TARGET_RECOVERY_DEVICE_MODULES := libinit_juice
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x4a90000
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom androidboot.console=ttyMSM0
