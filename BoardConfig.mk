@@ -66,6 +66,10 @@ endif
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
+# Enable real time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+HEALTHD_USE_BATTERY_INFO := true
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
