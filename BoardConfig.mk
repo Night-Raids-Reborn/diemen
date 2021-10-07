@@ -150,6 +150,10 @@ BOARD_USES_QCOM_HARDWARE := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/properties/system.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
 
+# Power
+TARGET_USES_INTERACTION_BOOST := true
+TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
+
 # RIL
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
