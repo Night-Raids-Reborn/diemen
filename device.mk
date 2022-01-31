@@ -24,6 +24,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.juice
+
 # Shipping level
 PRODUCT_SHIPPING_API_LEVEL := 29
 
