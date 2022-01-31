@@ -5,6 +5,7 @@
 #
 
 DEVICE_PATH := device/xiaomi/juice
+DEVICE_PREBUILT_PATH := device/xiaomi/juice/prebuilt
 BOARD_VENDOR := xiaomi
 
 BUILD_BROKEN_DUP_RULES := true
