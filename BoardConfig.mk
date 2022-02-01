@@ -96,6 +96,10 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno610
 BOARD_USES_QCOM_HARDWARE := true
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/properties/system.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.default
 BOARD_USES_RECOVERY_AS_BOOT := false

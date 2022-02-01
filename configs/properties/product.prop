@@ -1,0 +1,13 @@
+# DRM
+drm.service.enabled=true
+
+# Media
+ro.config.media_vol_steps=15
+vendor.audio.offload.buffer.size.kb=256
+
+# Power-saving props
+pm.sleep_mode=1
+power.saving.mode=1
+ro.ril.disable.power.collapse=0
+ro.vendor.use_data_netmgrd=true
+ro.vold.umsdirtyratio=20
