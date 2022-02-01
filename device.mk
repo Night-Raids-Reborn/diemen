@@ -101,7 +101,8 @@ PRODUCT_PACKAGES += \
    SettingsProviderOverlayJuice \
    SystemUIOverlayJuice \
    TelephonyOverlayJuice \
-   TetheringConfigOverlayJuice
+   TetheringConfigOverlayJuice \
+   WifiOverlayJuice
 
 # Power
 PRODUCT_PACKAGES += \
