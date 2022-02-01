@@ -6,6 +6,7 @@ ro.surface_flinger.supports_background_blur=1
 # Graphics
 debug.hwui.renderer=opengl
 debug.sf.disable_backpressure=1
+debug.sf.latch_unsignaled=1
 ro.surface_flinger.use_color_management=true
 
 # DRM
