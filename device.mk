@@ -58,6 +58,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.juice
 
+# Sensors
+PRODUCT_PACKAGES += \
+    libsensorndkbridge \
+    android.hardware.sensors@2.0-service.multihal
+
 # Shipping level
 PRODUCT_SHIPPING_API_LEVEL := 29
 
