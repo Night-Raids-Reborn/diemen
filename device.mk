@@ -85,6 +85,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.juice
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service-qti
+
 # QTI
 TARGET_COMMON_QTI_COMPONENTS := \
     bt \
