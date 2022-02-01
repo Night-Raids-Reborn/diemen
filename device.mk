@@ -94,7 +94,8 @@ PRODUCT_PACKAGES += \
 # Overlays
 PRODUCT_PACKAGES += \
    CarrierConfigOverlayJuice \
-   DialerOverlayJuice
+   DialerOverlayJuice \
+   FrameworksResOverlayJuice
 
 # Power
 PRODUCT_PACKAGES += \
