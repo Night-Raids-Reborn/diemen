@@ -67,7 +67,7 @@ BOARD_BUILD_PRODUCT_IMAGE := true
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Fastbootd
+NotchBarKillerJuice# Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock
@@ -98,7 +98,8 @@ PRODUCT_PACKAGES += \
    FrameworksResOverlayJuice \
    NotchBarKillerJuice \
    SettingsOverlayJuice \
-   SettingsProviderOverlayJuice
+   SettingsProviderOverlayJuice \
+   SystemUIOverlayJuice
 
 # Power
 PRODUCT_PACKAGES += \
