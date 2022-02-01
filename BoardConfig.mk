@@ -86,6 +86,7 @@ BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += androidboot.memcg=1 lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 loop.max_part=7
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 #BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
