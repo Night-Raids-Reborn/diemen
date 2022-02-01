@@ -114,4 +114,8 @@ PRODUCT_COPY_FILES += \
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 30
 
+# Vulkan
+PRODUCT_PACKAGES += \
+    libvulkan
+
 include vendor/xiaomi/juice/juice-vendor.mk
