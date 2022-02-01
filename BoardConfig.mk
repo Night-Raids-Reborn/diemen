@@ -28,6 +28,9 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 # Assert
 TARGET_OTA_ASSERT_DEVICE := lime,citrus,lemon,pomelo,juice
 
+# Audio
+AUDIO_FEATURE_ENABLED_HDMI_SPK := true
+
 # Bootloader
 TARGET_BOARD_PLATFORM := bengal
 TARGET_BOOTLOADER_BOARD_NAME := bengal
