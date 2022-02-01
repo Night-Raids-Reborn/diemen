@@ -24,6 +24,9 @@ persist.vendor.radio.calls.on.ims=1
 persist.vendor.radio.force_ltd_sys_ind=1
 persist.vendor.radio.voice_on_lte=1
 
+# Netflix custom property
+ro.netflix.bsp_rev=Q6115-31409-1
+
 # SSR
 persist.vendor.ssr.enable_ramdumps=1
 persist.vendor.ssr.restart_level=ALL_ENABLE
