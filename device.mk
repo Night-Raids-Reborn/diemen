@@ -99,7 +99,8 @@ PRODUCT_PACKAGES += \
    NotchBarKillerJuice \
    SettingsOverlayJuice \
    SettingsProviderOverlayJuice \
-   SystemUIOverlayJuice
+   SystemUIOverlayJuice \
+   TelephonyOverlayJuice
 
 # Power
 PRODUCT_PACKAGES += \
