@@ -35,6 +35,9 @@ TARGET_BOOTLOADER_BOARD_NAME := bengal
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 
+# Display
+TARGET_HAS_WIDE_COLOR_DISPLAY := false
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
