@@ -95,7 +95,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
    CarrierConfigOverlayJuice \
    DialerOverlayJuice \
-   FrameworksResOverlayJuice
+   FrameworksResOverlayJuice \
+   NotchBarKillerJuice
 
 # Power
 PRODUCT_PACKAGES += \
