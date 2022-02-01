@@ -91,6 +91,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.1 \
     vendor.qti.hardware.perf@2.2
 
+# Overlays
+PRODUCT_PACKAGES += \
+   CarrierConfigOverlayJuice
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
