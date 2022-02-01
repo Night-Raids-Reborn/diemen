@@ -13,6 +13,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Dex
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
 
+# Display
+PRODUCT_PACKAGES += \
+    libdisplayconfig \
+    libqdMetaData \
+    libqdMetaData.system
+
 # Dynamic partitions setup
 BOARD_BUILD_PRODUCT_IMAGE := true
 PRODUCT_BUILD_SUPER_PARTITION := false
