@@ -5,6 +5,7 @@ ro.surface_flinger.supports_background_blur=1
 
 # Graphics
 debug.hwui.renderer=opengl
+debug.sf.disable_backpressure=1
 
 # DRM
 drm.service.enabled=true
