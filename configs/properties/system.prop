@@ -12,6 +12,16 @@ vendor.bluetooth.soc=cherokee
 ro.charger.enable_suspend=true
 persist.vendor.quick.charge=1
 
+# Dex2oat
+pm.dexopt.boot=verify
+pm.dexopt.first-boot=verify
+pm.dexopt.install=speed-profile
+dalvik.vm.image-dex2oat-filter=speed
+dalvik.vm.image-dex2oat-threads=8
+dalvik.vm.dex2oat-filter=speed
+dalvik.vm.dex2oat-threads=8
+dalvik.vm.dex2oat64.enabled=true
+
 # IMS
 persist.dbg.ims_volte_enable=1
 persist.dbg.volte_avail_ovr=1
