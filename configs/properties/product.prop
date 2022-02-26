@@ -27,6 +27,7 @@ drm.service.enabled=true
 # Media
 ro.config.media_vol_steps=8
 vendor.audio.offload.buffer.size.kb=256
+vendor.audio_hal.period_size=240
 
 # Power-saving props
 pm.sleep_mode=1
