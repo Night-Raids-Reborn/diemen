@@ -18,6 +18,15 @@ ro.surface_flinger.use_color_management=true
 ro.surface_flinger.use_context_priority=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 
+# SF Offset
+debug.sf.late.sf.duration=10500000
+debug.sf.late.app.duration=20500000
+debug.sf.early.sf.duration=21000000
+debug.sf.early.app.duration=16500000
+debug.sf.earlyGl.sf.duration=13500000
+debug.sf.earlyGl.app.duration=21000000
+
+
 # Dex2oat
 dalvik.vm.dex2oat64.enabled=true
 
