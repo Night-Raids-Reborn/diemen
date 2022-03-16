@@ -50,6 +50,7 @@ drm.service.enabled=true
 
 # Media
 ro.config.media_vol_steps=8
+persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
 vendor.audio.offload.buffer.size.kb=256
 vendor.audio_hal.period_size=240
 
