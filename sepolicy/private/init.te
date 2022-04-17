@@ -14,3 +14,4 @@ allow init sysfs_graphics:file w_file_perms;
 
 # Allow init to access all sysfs
 allow init sysfs:file setattr;
+allow init sysfs_touchpanel:file { setattr };
