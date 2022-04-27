@@ -1,24 +1,11 @@
-on boot
+on early-init
     # Touchpanel
     chown system system /sys/touchpanel/double_tap
     chmod 0664 /sys/touchpanel/double_tap
 
-    # Sunfish cpuset configuration 
-    write /dev/cpuset/camera-daemon/cpus 0-7
-    write /dev/cpuset/camera-daemon/mems 0
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon
-    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
-    write /dev/cpuset/top-app/cpus 0-3
-    write /dev/cpuset/audio-app/cpus 0-3
-    write /dev/cpuset/foreground/cpus 0-5,7
-    write /dev/cpuset/foreground/boost/cpus 0-3
-    write /dev/cpuset/background/cpus 2-5
-    write /dev/cpuset/system-background/cpus 2-5
-    write /dev/cpuset/restricted/cpus 2-5
-
-    # set default schedTune value for camera-daemon
-    write /dev/stune/camera-daemon/schedtune.prefer_idle 1
-    write /dev/stune/camera-daemon/schedtune.boost 0
+    # Boost schedtune globally
+    write /dev/stune/schedtune.boost 50
+    write /dev/stune/schedtune.prefer_idle 1
 
 on init
     # ZRAM parameters
@@ -29,10 +16,114 @@ on init
     write /proc/sys/kernel/sched_lib_mask_force 255
 
 on property:sys.boot_completed=1
+    # Reset schedtune globally
+    write /dev/stune/schedtune.prefer_idle 0
+    write /dev/stune/schedtune.boost 0
     # Restrict permissions to socket file
     # to hide Magisk & co.
-    chmod 0440 /proc/net/unix
+    chmod 440 /proc/net/unix
     # Fast charging
     write /sys/kernel/fast_charge/force_fast_charge 1
     # Fingerprint Boost
     write /sys/kernel/fp_boost/enabled 1
+
+on property:sys.boot_completed=1
+    # Sunfish cpuset configuration
+    write /dev/cpuset/audio-app/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/foreground/cpus 2-6
+    write /dev/cpuset/restricted/cpus 2-5
+    write /dev/cpuset/system-background/cpus 2-4
+    write /dev/cpuset/top-app/cpus 0-7
+
+on property:sys.boot_completed=1
+    wait 60
+    # CPU
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 16000
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq 1804800
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_load 75
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/rate_limit_us 4000
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 4000
+    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us 16000
+    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq 2016000
+    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_load 75
+    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/rate_limit_us 4000
+    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us 4000
+    write /sys/devices/system/cpu/cpu_boost/input_boost_freq 1612800
+    write /sys/devices/system/cpu/cpu_boost/input_boost_ms 300
+    # FS Tweaks
+    write /sys/block/dm-0/queue/iostats 0
+    write /sys/block/dm-0/queue/nr_requests 64
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/iostats 0
+    write /sys/block/dm-1/queue/nr_requests 64
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/dm-2/queue/iostats 0
+    write /sys/block/dm-2/queue/nr_requests 64
+    write /sys/block/dm-2/queue/read_ahead_kb 128
+    write /sys/block/dm-3/queue/iostats 0
+    write /sys/block/dm-3/queue/nr_requests 64
+    write /sys/block/dm-3/queue/read_ahead_kb 128
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/nr_requests 64
+    write /sys/block/sda/queue/read_ahead_kb 128
+    write /sys/block/sdb/queue/iostats 0
+    write /sys/block/sdb/queue/nr_requests 64
+    write /sys/block/sdb/queue/read_ahead_kb 128
+    write /sys/block/sdc/queue/iostats 0
+    write /sys/block/sdc/queue/nr_requests 64
+    write /sys/block/sdc/queue/read_ahead_kb 128
+    write /sys/block/sdd/queue/iostats 0
+    write /sys/block/sdd/queue/nr_requests 64
+    write /sys/block/sdd/queue/read_ahead_kb 128
+    write /sys/block/sde/queue/iostats 0
+    write /sys/block/sde/queue/nr_requests 64
+    write /sys/block/sde/queue/read_ahead_kb 128
+    # Net Tweaks
+    write /proc/sys/net/ipv4/tcp_ecn 1
+    write /proc/sys/net/ipv4/tcp_fastopen 3
+    write /proc/sys/net/ipv4/tcp_syncookies 0
+    # Sched Tweaks
+    write /proc/sys/kernel/sched_autogroup_enabled 1
+    write /proc/sys/kernel/sched_child_runs_first 1
+    write /proc/sys/kernel/sched_latency_ns 4000000
+    write /proc/sys/kernel/sched_migration_cost_ns 5000000
+    write /proc/sys/kernel/sched_min_granularity_ns 500000
+    write /proc/sys/kernel/sched_min_task_util_for_colocation 0
+    write /proc/sys/kernel/sched_nr_migrate 32
+    write /proc/sys/kernel/sched_tunable_scaling 0
+    write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
+    write /sys/devices/system/cpu/cpu_boost/sched_boost_on_input 1
+    # Set the default IRQ affinity to the silver cluster. When a
+    # CPU is isolated/hotplugged, the IRQ affinity is adjusted
+    # to one of the CPU from the default IRQ affinity mask.
+    write /proc/irq/default_smp_affinity f
+    # Stune Tweaks
+    write /dev/stune/background/schedtune.boost 0
+    write /dev/stune/background/schedtune.prefer_idle 0
+    write /dev/stune/camera-daemon/schedtune.boost 5
+    write /dev/stune/camera-daemon/schedtune.prefer_idle 1
+    write /dev/stune/foreground/schedtune.boost 1
+    write /dev/stune/foreground/schedtune.prefer_idle 0
+    write /dev/stune/rt/schedtune.boost 1
+    write /dev/stune/rt/schedtune.prefer_idle 1
+    write /dev/stune/top-app/schedtune.boost 3
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+    # Tune down debugging
+    stop vendor.cnss_diag
+    stop vendor.ipacm-diag
+    write /proc/sys/kernel/printk_devkmsg off
+    write /proc/sys/kernel/sched_schedstats 0
+    # VM Tweaks
+    write /proc/sys/kernel/perf_cpu_time_max_percent 5
+    write /proc/sys/vm/dirty_background_ratio 10
+    write /proc/sys/vm/dirty_expire_centisecs 3000
+    write /proc/sys/vm/dirty_ratio 30
+    write /proc/sys/vm/dirty_writeback_centisecs 3000
+    write /proc/sys/vm/stat_interval 10
+    # Wake idle cores up instead of waiting
+    chmod 644 /sys/module/workqueue/parameters/power_efficient
+    write /sys/module/workqueue/parameters/power_efficient 'N'
+    chmod 444 /sys/module/workqueue/parameters/power_efficient
+

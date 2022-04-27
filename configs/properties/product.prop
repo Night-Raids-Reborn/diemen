@@ -90,3 +90,6 @@ persist.sys.am.reschedule_service=true
 
 # Oem Unlock
 ro.oem_unlock_supported=0
+
+# Debug
+persist.traced.enable=0

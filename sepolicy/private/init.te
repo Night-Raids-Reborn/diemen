@@ -1,5 +1,7 @@
 # Allow init to bind mount over vendor file
 allow init vendor_file:file mounton;
+allow init proc:file rw_file_perms;
+allow init sysfs_devices_system_cpu:file { getattr open read setattr write };
 
 # Allow init to mount vendor configs
 allow init vendor_configs_file:dir mounton;
