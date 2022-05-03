@@ -52,6 +52,9 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     libqdMetaData.system
 
+# Dex
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd \
@@ -60,6 +63,16 @@ PRODUCT_PACKAGES += \
 # File systems table
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+
+# GO
+ART_BUILD_HOST_DEBUG := false
+ART_BUILD_HOST_NDEBUG := true
+ART_BUILD_TARGET_DEBUG := false
+ART_BUILD_TARGET_NDEBUG := true
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
 # Health
 PRODUCT_PACKAGES += \
@@ -153,5 +166,13 @@ PRODUCT_COPY_FILES += \
 #Powerhint File
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/config/bengal/powerhint.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/powerhint.xml
+
+
+######## PROPS ########
+
+# ART
+PRODUCT_PRODUCT_PROPERTIES += \
+    dalvik.vm.dex2oat-filter=speed-profile \
+    dalvik.vm.image-dex2oat-filter=speed-profile
 
 include vendor/xiaomi/juice/juice-vendor.mk
