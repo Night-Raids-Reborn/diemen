@@ -93,3 +93,6 @@ ro.oem_unlock_supported=0
 
 # Debug
 persist.traced.enable=0
+
+# Cached app compaction
+persist.device_config.activity_manager.use_compaction=true
