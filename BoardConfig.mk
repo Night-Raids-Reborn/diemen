@@ -101,7 +101,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_SEPARATED_DTBO := false
 TARGET_KERNEL_HEADERS := kernel/xiaomi/juice
 TARGET_KERNEL_SOURCE := kernel/xiaomi/juice
-TARGET_KERNEL_CONFIG := vendor/juice-perf_defconfig
+TARGET_KERNEL_CONFIG := vendor/citrus-perf_defconfig
 
 #TARGET_FORCE_PREBUILT_KERNEL := true
 #TARGET_PREBUILT_KERNEL := $(DEVICE_PREBUILT_PATH)/kernel
