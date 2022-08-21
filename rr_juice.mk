@@ -1,3 +1,4 @@
+
 #
 # Copyright (C) 2021-2022 frstprjkt.
 #
@@ -7,13 +8,15 @@
 # Inherit device configurations
 $(call inherit-product, device/xiaomi/juice/device.mk)
 
-# Inherit common qassaProject configurations
-$(call inherit-product, vendor/nusantara/config/common_full_phone.mk)
+# Inherit common RR configurations
+$(call inherit-product, vendor/rr/config/common_full_phone.mk)
+TARGET_FACE_UNLOCK_SUPPORTED := true
+RR_BUILDTYPE := Unofficial
 TARGET_BOOT_ANIMATION_RES := 1080
 USE_PIXEL_CHARGING := true
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := nad_juice
+PRODUCT_NAME := rr_juice
 PRODUCT_DEVICE := juice
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := sm6115
