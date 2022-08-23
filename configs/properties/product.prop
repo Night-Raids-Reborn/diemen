@@ -34,3 +34,6 @@ power.saving.mode=1
 ro.ril.disable.power.collapse=0
 ro.vendor.use_data_netmgrd=true
 ro.vold.umsdirtyratio=20
+
+# Service reschedule
+persist.sys.am.reschedule_service=true
