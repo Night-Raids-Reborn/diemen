@@ -84,31 +84,43 @@ TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_juice
 TARGET_RECOVERY_DEVICE_MODULES := libinit_juice
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x4a90000
-BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom androidboot.console=ttyMSM0
-BOARD_KERNEL_CMDLINE += androidboot.memcg=1 lpm_levels.sleep_disabled=1
-BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 service_locator.enable=1
-BOARD_KERNEL_CMDLINE += swiotlb=2048 loop.max_part=7
+BOARD_KERNEL_CMDLINE := \
+    console=ttyMSM0,115200n8 \
+    earlycon=msm_geni_serial,0x4a90000 \
+    androidboot.hardware=qcom \
+    androidboot.console=ttyMSM0 \
+    androidboot.memcg=1 \
+    lpm_levels.sleep_disabled=1 \
+    msm_rtb.filter=0x237 \
+    service_locator.enable=1 \
+    swiotlb=2048 \
+    loop.max_part=7
+
+BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=default
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
+BOARD_KERNEL_CMDLINE += kpti=off
+
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
+BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_SECOND_OFFSET := 0xf00000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_KERNEL_OFFSET := 0x00008000
-BOARD_RAMDISK_OFFSET := 0x01000000
-TARGET_KERNEL_ARCH := arm64
-BOARD_KERNEL_IMAGE_NAME := Image.gz
+BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DTBO := false
+BOARD_RAMDISK_USE_LZ4 := true
+TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADERS := kernel/xiaomi/juice
 
 TARGET_FORCE_PREBUILT_KERNEL := true
-TARGET_PREBUILT_KERNEL := $(DEVICE_PREBUILT_PATH)/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PREBUILT_PATH)/dtb
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PREBUILT_PATH)/dtbo.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_BOOTIMG_HEADER_VERSION := 2
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
+BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc
 
 # Kernel Toolchain
 TARGET_KERNEL_CLANG_COMPILE := true
