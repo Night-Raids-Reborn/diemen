@@ -188,4 +188,4 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 BOARD_VNDK_VERSION := current
 
 # Inherit from the proprietary version
--include vendor/xiaomi/juice/BoardConfigVendor.mk
+-include vendor/xiaomi/citrus/BoardConfigVendor.mk
