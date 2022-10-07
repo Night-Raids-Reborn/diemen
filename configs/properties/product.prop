@@ -48,6 +48,17 @@ dalvik.vm.dex2oat64.enabled=true
 # DRM
 drm.service.enabled=true
 
+# SF Offset
+debug.sf.late.sf.duration=10500000
+debug.sf.late.app.duration=20500000
+debug.sf.early.sf.duration=21000000
+debug.sf.early.app.duration=16500000
+debug.sf.earlyGl.sf.duration=13500000
+debug.sf.earlyGl.app.duration=21000000
+
+# IORap
+persist.device_config.runtime_native_boot.iorap_readahead_enable=true
+
 # Media
 ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=11
@@ -56,11 +67,11 @@ vendor.audio.offload.buffer.size.kb=256
 vendor.audio_hal.period_size=240
 
 # Power-saving props
-pm.sleep_mode=1
-power.saving.mode=1
 ro.ril.disable.power.collapse=0
 ro.vendor.use_data_netmgrd=true
 ro.vold.umsdirtyratio=20
+pm.sleep_mode=1
+power.saving.mode=1
 
 # Rich-Communication Services
 persist.rcs.supported=1
@@ -69,10 +80,10 @@ persist.rcs.supported=1
 debug.media.transcoding.codec_max_operating_rate_720P=240
 debug.media.transcoding.codec_max_operating_rate_1080P=120
 
-# Service reschedule
-persist.sys.am.reschedule_service=true
-
 # Video Calling
 persist.vendor.radio.report_codec=1
 persist.vendor.radio.vdp_on_ims_cap=1
 persist.vendor.qti.telephony.vt_cam_interface=2
+
+# Service reschedule
+persist.sys.am.reschedule_service=true
