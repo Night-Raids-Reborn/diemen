@@ -112,7 +112,10 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.juice
+    android.hardware.power-service.qti \
+    vendor.qti.hardware.perf@2.0 \
+    vendor.qti.hardware.perf@2.1 \
+    vendor.qti.hardware.perf@2.2
 
 # RemovePackages
 PRODUCT_PACKAGES += \
