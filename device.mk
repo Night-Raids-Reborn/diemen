@@ -148,4 +148,8 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/vendor-overlay/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION))
 
+#Powerhint File
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power/config/bengal/powerhint.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/powerhint.xml
+
 include vendor/xiaomi/juice/juice-vendor.mk
