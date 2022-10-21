@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/nad_juice.mk
+    $(LOCAL_DIR)/qassa_juice.mk
 
 COMMON_LUNCH_CHOICES := \
-    nad_juice-eng \
-    nad_juice-userdebug \
-    nad_juice-user
+    qassa_juice-eng \
+    qassa_juice-userdebug \
+    qassa_juice-user
