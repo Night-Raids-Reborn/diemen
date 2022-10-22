@@ -41,8 +41,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0
 
+# Prebuilt App
 PRODUCT_PACKAGES += \
-    GoogleCameraGo
+    GoogleCameraGo \
+    Gboard
 
 # Display
 PRODUCT_PACKAGES += \
