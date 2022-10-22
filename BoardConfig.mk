@@ -8,8 +8,10 @@ DEVICE_PATH := device/xiaomi/juice
 DEVICE_PREBUILT_PATH := device/xiaomi/juice/prebuilt
 BOARD_VENDOR := xiaomi
 
+#Build
 BUILD_BROKEN_DUP_RULES := true
-
+SELINUX_IGNORE_NEVERALLOWS := true
+ALLOW_MISSING_DEPENDENCIES := true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
