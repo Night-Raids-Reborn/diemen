@@ -57,7 +57,7 @@ debug.sf.earlyGl.sf.duration=13500000
 debug.sf.earlyGl.app.duration=21000000
 
 # IORap
-persist.device_config.runtime_native_boot.iorap_readahead_enable=true
+iorapd.perfetto.enable=false
 
 # Media
 ro.config.media_vol_steps=25
