@@ -8,15 +8,19 @@
 $(call inherit-product, device/xiaomi/juice/device.mk)
 
 # Inherit common qassaProject configurations
-$(call inherit-product, vendor/qassa/config/common_full_phone.mk)
+$(call inherit-product, vendor/ancient/config/common_full_phone.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 USE_PIXEL_CHARGING := true
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := qassa_juice
+PRODUCT_NAME := ancient_juice
 PRODUCT_DEVICE := juice
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := sm6115
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Ancient
+IS_PHONE := true
+export ANCIENT_NOGAPPS=true
