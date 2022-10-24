@@ -44,19 +44,6 @@ on property:sys.boot_completed=1
 
 on property:sys.boot_completed=1
     wait 60
-    # CPU
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 16000
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq 1804800
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_load 75
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/rate_limit_us 4000
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 4000
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us 16000
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq 2016000
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_load 75
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/rate_limit_us 4000
-    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us 4000
-    write /sys/devices/system/cpu/cpu_boost/input_boost_freq 1612800
-    write /sys/devices/system/cpu/cpu_boost/input_boost_ms 300
     # FS Tweaks
     write /sys/block/dm-0/queue/iostats 0
     write /sys/block/dm-0/queue/nr_requests 64
