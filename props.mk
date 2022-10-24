@@ -48,24 +48,19 @@ ro.zram.mark_idle_delay_mins=60
 
 # ART
 PRODUCT_PRODUCT_PROPERTIES += \
-    dalvik.vm.dex2oat-filter=speed-profile \
-    dalvik.vm.image-dex2oat-filter=speed-profile
+dalvik.vm.dex2oat-filter=speed-profile \
+dalvik.vm.image-dex2oat-filter=speed-profile
 
 # FUSE Passthrough
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.sys.fuse.passthrough.enable=true \
-	persist.sys.fuse.bpf.enable=false
+persist.sys.fuse.passthrough.enable=true \
+persist.sys.fuse.bpf.enable=false
 
 # Blurs
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.sys.sf.disable_blurs=0 \
-    ro.sf.blurs_are_expensive=1 \
-    ro.surface_flinger.supports_background_blur=1
-
-# FUSE Passthrough
-PRODUCT_PRODUCT_PROPERTIES += \
-  persist.sys.fuse.passthrough.enable=true \
-  persist.sys.fuse.bpf.enable=false
+persist.sys.sf.disable_blurs=0 \
+ro.sf.blurs_are_expensive=1 \
+ro.surface_flinger.supports_background_blur=1
 
 # Graphics
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -162,4 +157,14 @@ persist.traced.enable=0
 # Cached app compaction
 PRODUCT_PRODUCT_PROPERTIES += \
 persist.device_config.activity_manager.use_compaction=true
+
+# GO
+PRODUCT_PRODUCT_PROPERTIES += \
+ro.lmk.filecache_min_kb=153600 \
+ro.lmk.stall_limit_critical=40 \
+ro.lmk.use_minfree_levels=false \
+ro.lmk.use_psi=true \
+ro.config.low_ram=false \
+ro.lmk.log_stats=false
+
 
