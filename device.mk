@@ -167,12 +167,5 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/config/bengal/powerhint.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/powerhint.xml
 
-
-######## PROPS ########
-
-# ART
-PRODUCT_PRODUCT_PROPERTIES += \
-    dalvik.vm.dex2oat-filter=speed-profile \
-    dalvik.vm.image-dex2oat-filter=speed-profile
-
+-include $(LOCAL_PATH)/props.mk
 include vendor/xiaomi/juice/juice-vendor.mk
