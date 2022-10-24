@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/qassa_juice.mk
+    $(LOCAL_DIR)/bootleg_juice.mk
 
 COMMON_LUNCH_CHOICES := \
-    qassa_juice-eng \
-    qassa_juice-userdebug \
-    qassa_juice-user
+    bootleg_juice-eng \
+    bootleg_juice-userdebug \
+    bootleg_juice-user
