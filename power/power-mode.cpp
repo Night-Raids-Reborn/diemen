@@ -79,8 +79,14 @@ using ::aidl::android::hardware::power::Mode;
 
 bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
 	switch (type) {
-		case Mode::DOUBLE_TAP_TO_WAKE:
-                case mode::LOW_POWER:
+#ifdef TAP_TO_WAKE_NODE
+        case Mode::DOUBLE_TAP_TO_WAKE:
+            ::android::base::WriteStringToFile(enabled ? "1" : "0", TAP_TO_WAKE_NODE, true);
+            break;
+#else
+        case Mode::DOUBLE_TAP_TO_WAKE:
+#endif
+        case mode::LOW_POWER:
 			*_aidl_return = true;
 			return true;
 		default:
@@ -90,9 +96,11 @@ bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
 
 bool setDeviceSpecificMode(Mode type, bool enabled) {
 	switch (type) {
-		case Mode::DOUBLE_TAP_TO_WAKE:
-                case Mode::LOW_POWER:
-                ::android::base::WriteStringToFile(enabled ? "Y" : "N", BATTERY_SAVER_NODE, true);
+#ifdef TAP_TO_WAKE_NODE
+        case Mode::DOUBLE_TAP_TO_WAKE:
+#endif
+        case Mode::LOW_POWER:
+        ::android::base::WriteStringToFile(enabled ? "Y" : "N", BATTERY_SAVER_NODE, true);
 			int fd = open_ts_input();
 			if (fd == -1) {
 				LOG(WARNING)
