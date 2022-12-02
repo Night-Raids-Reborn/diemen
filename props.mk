@@ -167,4 +167,5 @@ ro.lmk.use_psi=true \
 ro.config.low_ram=false \
 ro.lmk.log_stats=false
 
-
+#Gapps
+ro.setupwizard.mode=DISABLED
