@@ -7,9 +7,6 @@ type bt_firmware_file, file_type;
 type firmware_file, file_type;
 type persist_file, file_type;
 
-# nodes
-type sysfs_touchpanel, sysfs_type, fs_type;
-
 # socket
 type pps_socket, file_type;
 
