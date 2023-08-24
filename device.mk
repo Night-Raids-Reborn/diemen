@@ -123,7 +123,18 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-rom
 
 PRODUCT_PACKAGES += \
-    FrameworksResTarget
+    AospFrameworkResOverlay \
+    AospWifiResOverlay \
+    CarrierConfigResCommon \
+    CellBroadcastReceiverResCommon \
+    FrameworksResCommon \
+    FrameworksResTarget \
+    SystemUIResCommon \
+    TelecommResCommon \
+    TelephonyResCommon \
+    TetheringOverlay \
+    WifiOverlay \
+    WifiResCommon
 
 # Power
 PRODUCT_PACKAGES += \
